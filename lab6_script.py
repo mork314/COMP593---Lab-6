@@ -51,7 +51,7 @@ def installer_ok(installer_data, expected_sha256):
         return False
 
 def save_installer(installer_data):
-    installer_path = r'C:\temp'
+    installer_path = os.getenv('TEMP') + '\installer.exe'
     with open(installer_path, 'wb') as file:
             file.write(installer_data)
     return installer_path
@@ -66,3 +66,4 @@ def delete_installer(installer_path):
 
 if __name__ == '__main__':
     main()
+
